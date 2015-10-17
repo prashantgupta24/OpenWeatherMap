@@ -1,8 +1,6 @@
 ## OpenWeatherMap
 
-This is an app to query the OpenWeatherMap api and display the results on an HTML page. 
-
-http://openweathermap.org/
+This is an app to query the [OpenWeatherMap api](http://openweathermap.org/) and display the results on an HTML page. 
 
 ###Technologies Used
 
