@@ -9,4 +9,4 @@ This is an app to query the [OpenWeatherMap api](http://openweathermap.org/) and
 
 ###Example screenshot
 
-![image] (https://github.com/prashantgupta24/OpenWeatherMap/blob/master/screenshot.jpg])
+![Image] (https://github.com/prashantgupta24/OpenWeatherMap/blob/master/screenshot.jpg)
