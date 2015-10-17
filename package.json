@@ -1,0 +1,16 @@
+{
+  "name": "nodejsTesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Express.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "needle": "^0.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prashant Gupta",
+  "license": "ISC"
+}
