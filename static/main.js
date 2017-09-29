@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'
+dotenv.config()
+
 $(document).ready(function() {
 
   $('#myDiv').keypress(function(e) {
@@ -9,11 +12,21 @@ $(document).ready(function() {
     }
   });
 
-  function getGithubUser(username) {
+  function getWeatherData(username) {
     return new Promise((resolve, reject) => {
-      fetch(`http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=${username}`)
+      fetch(`http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=${username}`)
         .then(response => {
-          resolve(response);
+
+          if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+              response.status);
+            return;
+          }
+
+          response.json().then(function(data) {
+            console.log(data);
+            resolve(data);
+          });
         })
         .catch(err => reject(err));
     })
@@ -22,12 +35,11 @@ $(document).ready(function() {
   $('#submit_button').click(function() {
 
     console.log('hello');
-    getGithubUser('e259f3b0b525263427220a4c2eb39188')
-    .then(response => {
-      let jsonResponse = JSON.parse(response);
-      console.log(jsonResponse.weather[0].description);
-    })
-    .catch(err => console.log(err));
+    getWeatherData(process.env.WEATHER_API_KEY)
+      .then(response => {
+        console.log(response.weather[0].description);
+      })
+      .catch(err => console.log(err));
 
     // if ($("#units").val() != 'metric' && $("#units").val() != 'imperial' && $("#units").val() != 'default') {
     //   alert("Units value not matching! Please correct it!");
